@@ -1,0 +1,100 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-color: #00BFFF;
+}
+.container {
+  
+  width: 80vmin;
+  padding: 50px 30px;
+  background-color:black;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top:50%;
+  left: 50%;
+  border-radius: 15px;
+  border:3px solid white;
+}
+.stats {
+  text-align: right;
+  font-size: 15px;
+  position: relative;
+  bottom:30px;
+  color: MediumAquamarine
+}
+.stats span {
+  font-weight: 400;
+}
+#quote {
+  text-align: justify;
+  letter-spacing: 1px;
+  word-break: break-all;
+  color: LightBlue;
+  position: relative;
+  bottom:10px;
+  font-size: 16px
+}
+#input {
+  position: relative;
+  justify-content: center;
+  width:250px;
+}
+button {
+  
+  margin-top: 30px;
+  background-color:Indigo;
+  color: #ffffff;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 15px;
+  font-size: 18px;
+  
+}
+.result {
+  margin-top: 40px;
+  display: none;
+}
+.result h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+.wrapper span {
+  font-weight: 600;
+}
+.success {
+  color: #44b267;
+}
+.fail {
+  color: #e81c4e;
+}
+
+.green{
+  color: #00FFFF;
+  border-bottom:2px solid;
+}
+
+.red{
+  color:red;
+  border-bottom:2px solid red;
+}
+.blue{
+  color: LightBlue;
+  
+}
+
+#start{
+  position: relative;
+  left:60px;
+}
+#main{
+  opacity: 0;
+}

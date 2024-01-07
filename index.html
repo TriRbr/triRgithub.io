@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Typing Test</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="need"></div>
+    <input id="main" type="text">
+    <div class="container">
+      <div class="stats">
+        <p>WPM: <span id="wpm">0</span></p>
+        <p>CPM: <span id="cpm">0</span></p>
+        <p>Mistakes: <span id="mistakes">0</span></p>
+        <p>Time: <span id="scr">60s</span></p>
+      </div>
+      <div id="quote"></div>
+  
+        
+      
+      <button
+        id="input"
+        
+      >Activate Keyboard</button>
+      
+        <button id="start">Start Test</button>
+        
+      
+
+    </div>
+    <!-- Script -->
+    <script src="script.js">
+      
+let pass = ["A passage is a single uninterrupted stretch of text in a piece of writing. It can be as short as a sentence or two, or it can be several paragraphs long. A passage usually has a specific purpose."]
+let h
+let l = 0
+let a = 0
+let c = 0
+let d = -1
+let ll
+let v = 60
+let pp
+let p = ""
+let j =()=>{
+  main.focus()
+}
+
+let g = () => {
+  start.hidden = true
+  
+  for (let i of pass[d]) {
+    let u = document.createElement("span")
+    u.textContent = i
+    u.classList.add("hey")
+    need.append(u)
+    
+  }
+  
+  quote.innerHTML = need.innerHTML
+  need.innerHTML = ""
+  
+  main.value = ""
+  mistakes.textContent = 0
+  start.removeEventListener("click", g)
+  scr.textContent = "60s"
+  v=60
+  
+  hi.time()
+  hi.keychecker()
+  
+}
+
+let x = (e) => {
+
+
+
+  let bro = document.querySelectorAll(".hey")
+  let br = Array.from(bro)
+  p = main.value //p=h,p=hf,p=hf,p=hf_,p=hf
+  if(p == ll){//ll=un//ll=h,ll=hf,ll=hf,ll=hf_
+    console.log(p)
+    
+  }
+  else if(p != ll){//ll=un//ll=h
+    if (p.length < l) { //l=un,l=1,l=2,l=3
+      console.log(bro[p.length].className)
+      if (bro[p.length].classList.contains("red") == true) {
+        c--
+        mistakes.textContent = c
+      }
+      a--
+      bro[p.length].classList.add("blue")
+      bro[p.length].classList.remove("green")
+      bro[p.length].classList.remove("red")
+      l=p.length
+    }
+    else if (bro[p.length - 1].textContent == p[p.length - 1]) {
+    
+      a++
+      bro[p.length - 1].classList.add("green")
+      
+      bro[p.length - 1].classList.remove("blue")
+      bro[p.length - 1].classList.remove("red")
+      l = p.length//l=1,l=3
+    }
+    
+    else if (bro[p.length - 1].textContent != p[p.length - 1]) {
+      c++
+      mistakes.textContent = c
+      a++
+      bro[p.length - 1].classList.add("red")
+      bro[p.length - 1].classList.remove("blue")
+      bro[p.length - 1].classList.remove("green")
+      l = p.length
+    }
+  
+    ll = p
+    //let wp = Math.round(((p.length- mistakes.textContent) / 5) / (60 - v) * 60);
+    console.log(v)
+    
+    /*
+    if (mistakes.textContent == 5) {
+      hi.mistake()
+    }
+    */
+    if(a == bro.length){
+      hi.mistake()
+    }
+    
+  }
+  
+
+}
+
+
+class typing{
+keychecker(){
+  main.addEventListener("input",x)
+}
+start(){
+  d++
+  start.addEventListener("click",g)
+  input.addEventListener("click",j)
+  
+    
+}
+mistake(){
+  start.hidden = false
+  main.removeEventListener("input", x)
+  
+  input.removeEventListener("click", j)
+  c = 0
+  l = 0
+  a=0
+  start.textContent = "Next"
+  clearInterval(pp)
+  hi.start()
+}
+
+time(){
+    pp = setInterval((e)=>{
+    v--
+    scr.textContent = `${v}s`
+    let wp = Math.round((((p.length) / 5) - mistakes.textContent) / (60 - v) * 60);
+    wp = wp < 0 || !wp || wp === Infinity ? 0 : wp
+    
+    wpm.textContent = wp
+    
+    cpm.textContent = p.length - mistakes.textContent;
+    if (v == 0) {
+      hi.mistake()
+    }
+  },1000)
+}
+
+score(){
+  
+}
+}
+
+let hi = new typing()
+hi.start()
+
+    </script>
+  </body>
+</html>
